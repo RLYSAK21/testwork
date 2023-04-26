@@ -1,0 +1,29 @@
+body {
+    width: 100vw;
+}
+.content__boxed {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.w-md-250px {
+    min-width: 25%;
+}
+.ribbon {
+    background-color: red;
+}
+.ribbon span {
+    color: white;
+}
+
+ul li:before{
+    content: "✅";
+    position: absolute; top: 10px; left: 0;
+}
+.list-group {
+    width: 80%;
+    margin: 0 auto;
+}
+.list-group-item {
+    border: none;
+}
