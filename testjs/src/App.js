@@ -57,8 +57,15 @@ const UserTable = () => {
   };
 
   const handleAddUser = () => {
-    setData((prevData) => [...prevData, newUser]);
-    setNewUser({ id: null, name: '', email: '', age: null });
+    if (newUser.name && newUser.email && newUser.age > 0) {
+      setData((prevData) => [
+        ...prevData,
+        { ...newUser, id: Math.max(...prevData.map((item) => item.id)) + 1 },
+      ]);
+      setNewUser({ id: null, name: '', email: '', age: null });
+    } else {
+      alert('Please fill out all fields correctly.');
+    }
   };
 
   return (
@@ -108,10 +115,6 @@ const UserTable = () => {
   </table>
   <div>
     <h3>Add new user</h3>
-    <label>
-      ID:
-      <input type="number" name="id" value={newUser.id} onChange={handleNewUserChange} />
-    </label>
     <label>
       Name:
       <input type="text" name="name" value={newUser.name} onChange={handleNewUserChange} />
